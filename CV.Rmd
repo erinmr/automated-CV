@@ -1,19 +1,20 @@
 ---
-name: Darwin
-surname: Cubi
+name: Erin
+surname: Robinson
 date: "`r format(Sys.time(), '%B, %Y')`"
 qualifications: 
-address: Quito, Ecuador
-position: "Data Scientist | Actuary"
-profilepic: FOTO.png
-phone: 0996597844
-email: darwin.cubi@gmail.com
-github: darwinc
-linkedin: Darwin-C-V
-www: darwincubi.rbind.io
+#address: University of Colorado, Information Science Department
+position: "Graduate Student | Consultant | Coach"
+profilepic: ErinHeadshot.png
+#phone: 0996597844
+email: erin.robinson-1@colorado.edu
+github: erinmr
+linkedin: erinmr
+orcid: 0000-0001-9998-0114
+www: erinrobinson.info
 header-includes:
   - \setstretch{1.15}
-headcolor: 3B9DE1
+headcolor: 3b3bc4
 output: vitae::awesomecv
 ---
 
@@ -26,20 +27,20 @@ library(magrittr)
 source("Utils/data_download_funs.R")
 
 CV <- create_CV_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1AN85IIvbcMnGbcOCX3jurB4fMOp_niAUbDBU_zfjFEw/edit?usp=sharing",  
+  data_location = "https://docs.google.com/spreadsheets/d/1QoLsbejLqTdxpQZeED8yNJ6I2-x_WaEjbaaQfLC_pR8/edit?usp=sharing",  
   pdf_mode = FALSE
 )
 ```
 
 \vspace*{0.5cm}
-
+# Research Interests
 ```{r, results='asis'}
 CV %<>% print_text_block("intro") 
 ```
 
 # Education
 
-```{r}
+```{r, results='asis'}
 CV$entries_data %>% 
   filter(section == 'education') %>% 
   detailed_entries(
@@ -51,9 +52,9 @@ CV$entries_data %>%
   )
 ```
 
-# Employment
+# Professional Experience
 
-```{r}
+```{r, results='asis'}
 CV$entries_data %>% 
   filter(section == 'industry_positions') %>% 
   detailed_entries(
@@ -65,9 +66,9 @@ CV$entries_data %>%
   )
 ```
 
-# Certifications
+# Additional Credentials
 
-```{r}
+```{r, results='asis'}
 CV$entries_data %>% 
   filter(section == 'courses') %>% 
   detailed_entries(
@@ -79,14 +80,51 @@ CV$entries_data %>%
   )
 ```
 
-# Skills
+# Awards & Honors
 
 ```{r, results='asis'}
-CV %>% print_skill()
+CV$entries_data %>% 
+  filter(section == 'award') %>% 
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{`start`}"),
+    with = title,
+    why = description_bullets
+  )
 ```
 
-# Blog Medium 
+# Grants
+Additional funding from past positions can be found on [my ORCID profile](https://orcid.org/0000-0001-9998-0114)
 
 ```{r, results='asis'}
-CV %<>% print_post()
+CV$entries_data %>% 
+  filter(section == 'grant') %>% 
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{`start`} - {`end`}"),
+    with = title,
+    why = description_bullets
+  )
+```
+
+# Selected Publications 
+For all publications see my [Google Scholar Profile](https://scholar.google.com/citations?user=PfGu6vEAAAAJ&hl=en&oi=sra) 
+```{r}
+CV$entries_data %>%
+filter(section == 'academic_articles') %>%
+detailed_entries(
+with = title,
+why = description_bullets
+)
+```
+
+# Service
+
+```{r}
+CV$entries_data %>%
+filter(section == 'service') %>%
+detailed_entries(
+with = title,
+why = description_bullets
+)
 ```
