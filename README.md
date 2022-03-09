@@ -1,3 +1,5 @@
+This repo is forked from [DarwinCV](https://github.com/DarwinCV/automated-CV.git). 
+
 
 # How to create a CV with Rmarkdown, Awesome CV and Google Sheets
 
