@@ -15,7 +15,8 @@ www: erinrobinson.info
 header-includes:
   - \setstretch{1.15}
 headcolor: 3b3bc4
-output: vitae::awesomecv
+output: 
+  vitae::awesomecv
 ---
 
 
