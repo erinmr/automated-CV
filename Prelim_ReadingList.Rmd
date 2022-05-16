@@ -1,10 +1,10 @@
 ---
-name: Erin
-surname: Robinson
+name: Preliminary
+surname: Reading List
 date: "`r format(Sys.time(), '%B, %Y')`"
 qualifications: 
 #address: University of Colorado, Information Science Department
-position: "Prelim Reading List"
+position: "Erin Robinson"
 profilepic: ErinHeadshot.png
 #phone: 0996597844
 email: erin.robinson-1@colorado.edu
