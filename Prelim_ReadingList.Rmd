@@ -28,7 +28,7 @@ library(magrittr)
 source("Utils/data_download_funs.R")
 
 CV <- create_CV_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1QoLsbejLqTdxpQZeED8yNJ6I2-x_WaEjbaaQfLC_pR8/edit?usp=sharing",  
+  data_location = "https://docs.google.com/spreadsheets/d/18GWxmSiUrnKkuzshEAek-gAo68B-c6tNXGbE7a9fz18/edit?usp=sharing",  
   pdf_mode = FALSE
 )
 ```
