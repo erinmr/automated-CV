@@ -5,7 +5,7 @@ date: "`r format(Sys.time(), '%B, %Y')`"
 qualifications: 
 #address: University of Colorado, Information Science Department
 position: "Erin Robinson"
-profilepic: ErinHeadshot.png
+#profilepic: ErinHeadshot.png
 #phone: 0996597844
 email: erin.robinson-1@colorado.edu
 github: erinmr
@@ -43,7 +43,7 @@ CV %<>% print_text_block("intro")
 Theory is broken into three parts - STS, Feminist Theory,  
 ```{r}
 CV$entries_data %>%
-filter(section == 'academic_articles') %>%
+filter(section == 'theory_articles') %>%
 detailed_entries(
 with = title,
 why = description_bullets
@@ -52,10 +52,22 @@ why = description_bullets
 
 
 # Method 
-Theory is broken into three parts - STS, Feminist Theory,  
+Method consists of ethnography, discourse analysis...   
 ```{r}
 CV$entries_data %>%
-filter(section == 'academic_articles') %>%
+filter(section == 'method_articles') %>%
+detailed_entries(
+with = title,
+why = description_bullets
+)
+```
+
+
+# HCI Cannon
+Essential HCI literature.   
+```{r}
+CV$entries_data %>%
+filter(section == 'HCICannon_articles') %>%
 detailed_entries(
 with = title,
 why = description_bullets
