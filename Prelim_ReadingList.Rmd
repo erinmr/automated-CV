@@ -34,7 +34,7 @@ CV <- create_CV_object(
 ```
 
 \vspace*{0.5cm}
-# Research Interests
+# Prelinary 
 ```{r, results='asis'}
 CV %<>% print_text_block("intro") 
 ```
