@@ -34,12 +34,12 @@ CV <- create_CV_object(
 ```
 
 \vspace*{0.5cm}
-# Prelinary 
+# Introduction 
 ```{r, results='asis'}
 CV %<>% print_text_block("intro") 
 ```
 
-# Theory 
+# Section 1: Scientific Data Sharing
 Theory is broken into three parts - STS, Feminist Theory,  
 ```{r}
 CV$entries_data %>%
@@ -51,7 +51,18 @@ why = description_bullets
 ```
 
 
-# Method 
+# Section 2: Theory
+Theory is broken into three parts - STS, Feminist Theory,   
+```{r}
+CV$entries_data %>%
+filter(section == 'method_articles') %>%
+detailed_entries(
+with = title,
+why = description_bullets
+)
+```
+
+# Section 3: Method
 Method consists of ethnography, discourse analysis...   
 ```{r}
 CV$entries_data %>%
@@ -63,7 +74,7 @@ why = description_bullets
 ```
 
 
-# HCI Cannon
+# Section 4: HCI Cannon
 Essential HCI literature.   
 ```{r}
 CV$entries_data %>%
