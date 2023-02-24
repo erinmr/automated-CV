@@ -4,7 +4,7 @@ surname: Robinson
 date: "`r format(Sys.time(), '%B, %Y')`"
 qualifications: 
 #address: University of Colorado, Information Science Department
-position: "Graduate Student | Consultant | Coach"
+position: "Graduate Student | Consultant "
 profilepic: ErinHeadshot.png
 #phone: 0996597844
 email: erin.robinson-1@colorado.edu
