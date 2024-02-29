@@ -3,9 +3,9 @@ name: Erin
 surname: Robinson
 date: "`r format(Sys.time(), '%B, %Y')`"
 qualifications: 
-#address: University of Colorado, Information Science Department
+address: "Information Science Department, University of Colorado"
 position: "Graduate Student | Consultant "
-profilepic: ErinHeadshot.png
+#profilepic: ErinHeadshot.png
 #phone: 0996597844
 email: erin.robinson-1@colorado.edu
 github: erinmr
@@ -18,7 +18,6 @@ headcolor: 3b3bc4
 output: 
   vitae::awesomecv
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
@@ -33,11 +32,6 @@ CV <- create_CV_object(
 )
 ```
 
-\vspace*{0.5cm}
-# Research Interests
-```{r, results='asis'}
-CV %<>% print_text_block("intro") 
-```
 
 # Education
 
@@ -53,6 +47,10 @@ CV$entries_data %>%
   )
 ```
 
+# Research Interests
+
+Computer-Supported Cooperative Work, Environmental Informatics, Knowledge Infrastructure, Science of Science, STS
+
 # Professional Experience
 
 ```{r, results='asis'}
@@ -67,18 +65,17 @@ CV$entries_data %>%
   )
 ```
 
-# Additional Credentials
+# Publications
 
-```{r, results='asis'}
-CV$entries_data %>% 
-  filter(section == 'courses') %>% 
-  detailed_entries(
-    what = institution,
-    when = glue::glue("{`start`}"),
-    with = title,
-    where = loc,
-    why = description_bullets
-  )
+For all publications see my [Google Scholar Profile](https://scholar.google.com/citations?user=PfGu6vEAAAAJ&hl=en&oi=sra)
+
+```{r}
+CV$entries_data %>%
+filter(section == 'academic_articles') %>%
+detailed_entries(
+with = title, 
+why = description_bullets
+)
 ```
 
 # Awards & Honors
@@ -95,6 +92,7 @@ CV$entries_data %>%
 ```
 
 # Grants
+
 Additional funding from past positions can be found on [my ORCID profile](https://orcid.org/0000-0001-9998-0114)
 
 ```{r, results='asis'}
@@ -108,18 +106,21 @@ CV$entries_data %>%
   )
 ```
 
-# Selected Publications 
-For all publications see my [Google Scholar Profile](https://scholar.google.com/citations?user=PfGu6vEAAAAJ&hl=en&oi=sra) 
-```{r}
-CV$entries_data %>%
-filter(section == 'academic_articles') %>%
-detailed_entries(
-with = title,
-why = description_bullets
-)
+# Teaching Experience
+
+```{r, results='asis'}
+CV$entries_data %>% 
+  filter(section == 'teaching_positions') %>% 
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{`start`}"),
+    with = title,
+    where = loc,
+    why = description_bullets
+  )
 ```
 
-# Service
+# Volunteer/Service
 
 ```{r}
 CV$entries_data %>%
@@ -128,4 +129,18 @@ detailed_entries(
 with = title,
 why = description_bullets
 )
+```
+
+# Additional Credentials
+
+```{r, results='asis'}
+CV$entries_data %>% 
+  filter(section == 'courses') %>% 
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{`start`}"),
+    with = title,
+    where = loc,
+    why = description_bullets
+  )
 ```
