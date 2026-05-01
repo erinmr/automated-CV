@@ -1,0 +1,102 @@
+---
+name: Erin
+surname: Robinson
+date: "`r format(Sys.time(), '%B, %Y')`"
+qualifications: 
+position: "Digital Infrastructure Designer + Facilitator"
+#profilepic: ErinHeadshot.png
+#phone: 0996597844
+email: erin@metadatagamechnagers.com
+github: erinmr
+linkedin: erinmr
+orcid: 0000-0001-9998-0114
+www: erinrobinson.info
+header-includes:
+  - \setstretch{1.15}
+headcolor: 3b3bc4
+output: 
+  vitae::awesomecv
+fontsize: 10pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(dplyr)
+library(magrittr)
+source("Utils/data_download_funs.R")
+
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1Q_BUBgZ7wRJ6VWRw95shYGduhNDK9mLQaKfa65a3KW0/edit?usp=sharing",  
+  pdf_mode = FALSE
+)
+```
+
+# Research Narrative
+
+My career focuses on making environmental data more useful to diverse communities. Early work at Washington University's Center for Air Pollution Impact and Trend Analysis (CAPITA) repurposed air quality datasets for research on long-range smoke and dust transport, introducing me to the Earth Science Information Partners (ESIP), where I later served as Community Director and Executive Director. Across this work, one refrain held: "it's not a technical problem, it's a social problem." In 2021, I returned to graduate school in Information Science under Leysia Palen, to study the social side. My research domain shifted from air quality to biological field stations. Currently, my research investigates information work practices in place-based environmental science—how researchers, field stations, and local and Indigenous communities produce, share, and steward data—and translates those findings into infrastructure design. This work draws on FAIR, CARE, and TRUST principles to connect research outputs to place, and informs ongoing projects including Ethnocode, and the iPlaces platform.
+
+# Education
+
+```{r, results='asis'}
+CV$entries_data %>% 
+  filter(section == 'education') %>% 
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{`start`} - {`end`}"),
+    with = title,
+    where = loc,
+    why = description_bullets
+  )
+```
+
+# Professional Experience
+
+```{r, results='asis'}
+CV$entries_data %>% 
+  filter(section == 'industry_positions') %>% 
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{`start`} - {`end`}"),
+    with = title,
+    where = loc,
+    why = description_bullets
+  )
+```
+
+# Publications
+
+For all publications see my [Google Scholar Profile](https://scholar.google.com/citations?user=PfGu6vEAAAAJ&hl=en&oi=sra)
+
+```{r}
+CV$entries_data %>%
+filter(section == 'academic_articles') %>%
+detailed_entries(
+with = title, 
+why = description_bullets
+)
+```
+
+# Awards & Honors
+
+```{r, results='asis'}
+CV$entries_data %>% 
+  filter(section == 'award') %>% 
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{`start`}"),
+    with = title,
+    why = description_bullets
+  )
+```
+
+# Volunteer/Service
+
+```{r}
+CV$entries_data %>%
+filter(section == 'service') %>%
+detailed_entries(
+with = title,
+why = description_bullets
+)
+```
